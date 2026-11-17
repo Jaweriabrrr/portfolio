@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jaweria Bari | Personal Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #17233c;
+}
+
+/* NAVBAR */
+header {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #17233c;
+}
+
+.logo span {
+    color: #ed8b24;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #17233c;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ed8b24;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 88vh;
+    padding: 80px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+    background: #f8faff;
+}
+
+.hero-text {
+    max-width: 570px;
+    z-index: 2;
+}
+
+.hero-text .welcome {
+    color: #ed8b24;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+.hero-text h1 {
+    font-size: clamp(38px, 5vw, 58px);
+    margin: 18px 0;
+    line-height: 1.2;
+    color: #14213d;
+}
+
+.hero-text h1 span {
+    color: #ed8b24;
+}
+
+.hero-text h2 {
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.hero-text p {
+    color: #687386;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.buttons {
+    margin-top: 28px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 27px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.primary {
+    background: #172b68;
+    color: white;
+}
+
+.primary:hover {
+    background: #ed8b24;
+    transform: translateY(-3px);
+}
+
+.secondary {
+    border: 2px solid #172b68;
+    color: #172b68;
+}
+
+.secondary:hover {
+    background: #172b68;
+    color: white;
+}
+
+/* PROFILE */
+.profile {
+    width: 340px;
+    height: 340px;
+    min-width: 260px;
+    border-radius: 50%;
+    background: #ffc72c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 12px solid white;
+    box-shadow: 0 10px 35px rgba(0,0,0,.10);
+    z-index: 2;
+}
+
+.profile-inner {
+    width: 220px;
+    height: 220px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+}
+
+/* GENERAL SECTIONS */
+section:not(.hero) {
+    padding: 85px 10%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading span {
+    color: #ed8b24;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.section-heading h2 {
+    font-size: 35px;
+    margin-top: 10px;
+    color: #17233c;
+}
+
+.section-heading p {
+    color: #758094;
+    margin-top: 10px;
+}
+
+/* ABOUT */
+.about-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    color: #687386;
+    line-height: 2;
+    font-size: 16px;
+}
+
+/* SKILLS */
+#skills {
+    background: #f8faff;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: white;
+    padding: 30px 15px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+}
+
+.skill-card .icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.skill-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.skill-card p {
+    color: #758094;
+    font-size: 13px;
+}
+
+/* EDUCATION */
+.education-box {
+    max-width: 700px;
+    margin: auto;
+    border-left: 3px solid #ed8b24;
+    padding: 10px 30px;
+}
+
+.education-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.education-item::before {
+    content: "";
+    position: absolute;
+    left: -39px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: #ed8b24;
+    border-radius: 50%;
+}
+
+.education-item h3 {
+    font-size: 19px;
+}
+
+.education-item p {
+    color: #758094;
+    margin-top: 8px;
+}
+
+/* PROJECTS */
+#projects {
+    background: #f8faff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+}
+
+.project-card .project-icon {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.project-card h3 {
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: #758094;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+/* EXPERIENCE */
+.experience-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 12px;
+    background: #f8faff;
+    text-align: center;
+}
+
+.experience-box h3 {
+    margin-bottom: 12px;
+}
+
+.experience-box p {
+    color: #758094;
+    line-height: 1.8;
+}
+
+/* CONTACT */
+#contact {
+    background: #17233c;
+    color: white;
+}
+
+#contact .section-heading h2 {
+    color: white;
+}
+
+#contact .section-heading p {
+    color: #c4cbd8;
+}
+
+.contact-form {
+    max-width: 650px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+}
+
+.contact-form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: #ed8b24;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #d87912;
+}
+
+/* FOOTER */
+footer {
+    background: #101a2d;
+    color: #aab5c7;
+    text-align: center;
+    padding: 22px;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media(max-width: 850px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 65px;
+        right: 5%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        box-shadow: 0 5px 20px #ddd;
+        border-radius: 10px;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 65px 6%;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .profile {
+        width: 250px;
+        height: 250px;
+        min-width: 250px;
+    }
+
+    .profile-inner {
+        width: 165px;
+        height: 165px;
+        font-size: 75px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section:not(.hero) {
+        padding: 65px 6%;
+    }
+}
+
+@media(max-width: 400px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="logo">Jaweria<span>.</span></div>
+
+    <nav id="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="welcome">WELCOME TO MY PORTFOLIO</div>
+
+        <h1>Hi There,<br>
+        I'm <span>Jaweria Bari</span></h1>
+
+        <h2>I am an Aspiring Web Developer</h2>
+
+        <p>
+            A Mathematics student with a passion for technology,
+            creativity and web development. I enjoy learning
+            new skills and building modern digital experiences.
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="btn primary">About Me →</a>
+            <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+
+    </div>
+
+    <div class="profile">
+        <div class="profile-inner">👩🏻‍💻</div>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="section-heading">
+        <span>GET TO KNOW ME</span>
+        <h2>About Me</h2>
+    </div>
+
+    <div class="about-content">
+        <p>
+            Hello! I am Jaweria Bari, a BS Mathematics student
+            at The Women University Multan. I am interested in
+            technology, programming and creative problem-solving.
+            I am currently developing my web development skills
+            and exploring how mathematics and technology work together.
+            My goal is to become a skilled professional and create
+            useful digital solutions.
+        </p>
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <div class="section-heading">
+        <span>WHAT I AM LEARNING</span>
+        <h2>My Skills</h2>
+        <p>Technologies and subjects I am exploring.</p>
+    </div>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <div class="icon">🌐</div>
+            <h3>HTML</h3>
+            <p>Web Page Structure</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">🎨</div>
+            <h3>CSS</h3>
+            <p>Web Design & Styling</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">💻</div>
+            <h3>JavaScript</h3>
+            <p>Currently Learning</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">📐</div>
+            <h3>Mathematics</h3>
+            <p>Logical Problem Solving</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+
+    <div class="section-heading">
+        <span>MY ACADEMIC JOURNEY</span>
+        <h2>Education</h2>
+    </div>
+
+    <div class="education-box">
+
+        <div class="education-item">
+            <h3>BS Mathematics</h3>
+            <p>The Women University Multan</p>
+            <p>2024 – Present</p>
+        </div>
+
+        <div class="education-item">
+            <h3>Intermediate</h3>
+            <p>2022 – 2024</p>
+        </div>
+
+        <div class="education-item">
+            <h3>Matriculation</h3>
+            <p>2020 – 2022</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <div class="section-heading">
+        <span>MY CREATIVE WORK</span>
+        <h2>My Projects</h2>
+        <p>Some projects I am learning to create.</p>
+    </div>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <div class="project-icon">🌐</div>
+            <h3>Personal Portfolio</h3>
+            <p>A professional website to introduce myself,
+            my education and my skills.</p>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">🥪</div>
+            <h3>Recipe Website</h3>
+            <p>A simple recipe page designed using HTML and CSS.</p>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">🛍️</div>
+            <h3>Shopping Website</h3>
+            <p>A fashion store homepage with product cards
+            and a modern design.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+
+    <div class="section-heading">
+        <span>MY PROFESSIONAL JOURNEY</span>
+        <h2>Experience</h2>
+    </div>
+
+    <div class="experience-box">
+        <h3>Learning & Development</h3>
+        <p>
+            I am at the beginning of my professional journey.
+            I am focused on gaining practical experience through
+            personal projects, continuous learning and skill development.
+        </p>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="section-heading">
+        <span>LET'S CONNECT</span>
+        <h2>Contact Me</h2>
+        <p>Feel free to get in touch with me.</p>
+    </div>
+
+    <form class="contact-form" onsubmit="sendMessage(event)">
+
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Your Email" required>
+
+        <textarea placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Send Message →</button>
+
+    </form>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Jaweria Bari | Personal Portfolio</p>
+    <p>Designed with passion and creativity.</p>
+</footer>
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+}
+
+document.querySelectorAll("#navbar a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navbar").classList.remove("show");
+    });
+});
+
+function sendMessage(event) {
+    event.preventDefault();
+    alert("Thank you! Your message form is ready.");
+}
+
+</script>
+
+</body>
+</html>
